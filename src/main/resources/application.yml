@@ -1,0 +1,36 @@
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password: ENC(nMEl1zj6k1oFA2dq6UunuTZ3pyhoQnAXgzNsLbEdTfA/vgQbdvZfEuMZ+mnB7qK5)
+    url: jdbc:postgresql://localhost:5432/housechores
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  mail:
+    host: localhost
+    port: 1025
+    username: hello
+    password: ENC(vRHaQhRLchwdeolw0NaHYIoh7Ny46+woEC1YX+JtJ4ErwOl8FpkkVLNOLvcCjxCB)
+
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000

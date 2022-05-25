@@ -45,7 +45,7 @@ public class AppUserService implements UserDetailsService {
         if (userExists) {
             AppUser existingUser = appUserRepository.findByEmail(appUser.getEmail()).get();
 
-            if (existingUser.getEnabled()) {
+            if (!existingUser.getEnabled()) {
                 // Update user data and return token
                 existingUser.setName(appUser.getName());
                 existingUser.setPassword(encodedPassword);

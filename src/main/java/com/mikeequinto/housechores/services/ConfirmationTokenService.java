@@ -23,7 +23,6 @@ public class ConfirmationTokenService {
     }
 
     public int setConfirmedAt(String token) {
-        return confirmationTokenRepository.updateConfirmedAt(
-                token, LocalDateTime.now());
+        return confirmationTokenRepository.updateConfirmedAt(token, LocalDateTime.now());
     }
 }

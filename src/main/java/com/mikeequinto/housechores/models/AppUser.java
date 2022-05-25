@@ -9,8 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 @Getter
 @Setter
@@ -38,6 +37,14 @@ public class AppUser implements UserDetails {
     private AppUserRole appUserRole;
     private Boolean locked = false;
     private Boolean enabled = false;
+
+    @ManyToMany
+    @JoinTable(
+            name = "app_users_households_associations",
+            joinColumns = @JoinColumn(name = "app_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "household_id")
+    )
+    private List<Household> households = new ArrayList<>();
 
     public AppUser(String name, String username, String email, String password, AppUserRole appUserRole) {
         this.name = name;
